@@ -1,0 +1,122 @@
+@use 'variables' as var
+@use 'mixins' as mix
+
+*
+    font-family: 'Poppins'
+    padding: 0
+    margin: 0
+    box-sizing: border-box
+
+body
+    background-color: var.$bg-color
+    color: var.$text-color
+
+    a
+        color: var.$text-color
+        text-decoration: none
+        transition: .3s
+
+    ul
+        list-style: none
+
+.header
+    display: flex
+    justify-content: space-between
+    @include mix.container
+
+    @include mix.mobile
+        padding: 1.1rem
+
+    &-brand // OUTPUT: .header-brand
+        color: var.$primary-color
+        font-size: 3rem
+
+    &-navbar // OUTPUT: .header-navbar
+
+        ul
+            height: 100%
+            @include mix.flex-center
+
+            @include mix.mobile
+                display: none
+
+            li
+                margin: 0 1rem
+                text-transform: uppercase
+                font-size: .8rem
+
+                .active
+                    color: var.$secondary-color
+
+                a
+                    &:hover
+                        color: var.$secondary-color
+
+    &-social-media
+
+        ul
+            @include mix.flex-center
+            height: 100%
+
+            @include mix.mobile
+            display: none
+
+            li
+                margin: 0 1rem
+
+                a
+
+                    &:hover
+                        color: var.$primary-color
+
+.gallery
+    @include mix.flex-center
+    @include mix.container
+    flex-wrap: wrap
+    justify-content: space-between
+    padding: 0
+
+
+    @include mix.mobile
+        flex-direction: column
+
+    &-card // OUTPUT: .gallery-card
+        width: 31%
+        height: 400px
+        margin-bottom: 4%
+        @include mix.flex-center
+        flex-direction: column
+        color: var.$primary-color
+
+        @include mix.mobile
+            width: 90%
+            margin-bottom: 6%
+
+        &-title
+            font-size: 2rem
+            font-weight: 300
+            margin-bottom: 1rem
+
+        &-btn
+            padding: .6rem 2rem
+            border: 2px solid var.$primary-color
+            color: var.$primary-color
+            font-weight: 400
+            text-transform: uppercase
+            letter-spacing: 1px
+
+            &:hover
+                background-color: var.$primary-color
+                color: var.$bg-color
+
+    @for $x from 1 through 9
+        #card-#{$x}
+            @include mix.bg-img('foto-#{$x}.jpg')
+
+footer
+    text-align: center
+    padding-bottom: 2rem
+
+    span
+        font-weight: bold
+        color: var.$secondary-color
