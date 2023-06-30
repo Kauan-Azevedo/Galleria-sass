@@ -1,0 +1,27 @@
+import { Gallery } from './components/Gallery/Gallery';
+import { Navbar } from './components/Navbar/Navbar';
+import { Card } from './components/Card/Card';
+import { data } from './mocks/data';
+
+function App() {
+    const { navData, cards } = data;
+    return (
+        <>
+            <Navbar title={navData.title} items={navData.items} />
+            <Gallery>
+                {cards.map((card, index) => {
+                    return (
+                        <Card
+                            key={index}
+                            title={card.title}
+                            href={card.href}
+                            img={card.img}
+                        />
+                    );
+                })}
+            </Gallery>
+        </>
+    );
+}
+
+export default App;

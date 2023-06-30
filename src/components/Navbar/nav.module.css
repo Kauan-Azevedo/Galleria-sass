@@ -1,0 +1,32 @@
+header {
+    padding: 5px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header h2 {
+    font-size: 3rem;
+    color: var(--text-color);
+}
+
+header ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .9rem;
+}
+
+header ul li {
+    color: rgb(192, 192, 192);
+    font-size: .8rem;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    transition: 150ms;
+}
+
+header ul li:hover {
+    color: var(--primary-color);
+}
