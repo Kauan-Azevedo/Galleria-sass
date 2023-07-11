@@ -2,6 +2,7 @@ import { Gallery } from './components/Gallery/Gallery';
 import { Navbar } from './components/Navbar/Navbar';
 import { Card } from './components/Card/Card';
 import { data } from './mocks/data';
+import { Footer } from './components/Footer/footer';
 
 function App() {
     const { navData, cards } = data;
@@ -20,6 +21,7 @@ function App() {
                     );
                 })}
             </Gallery>
+            <Footer />
         </>
     );
 }
